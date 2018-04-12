@@ -2,7 +2,8 @@
 //create a new express router
 const express = require('express') ,
 router = express.Router(),
-mainController = require('./controllers/main.controller');
+mainController = require('./controllers/main.controller'),
+eventsController = require('./controllers/events.controller');
 
 
 
@@ -10,4 +11,7 @@ mainController = require('./controllers/main.controller');
 module.exports = router ;
 
 //define routes
+//main route
 router.get('/',mainController.showHome);
+//events route
+router.get('/events',eventsController.showEvents) ;
