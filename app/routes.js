@@ -1,13 +1,13 @@
 
 //create a new express router
 const express = require('express') ,
-router = express.Router();
+router = express.Router(),
+mainController = require('./controllers/main.controller');
+
 
 
 //export router
 module.exports = router ;
 
 //define routes
-router.get('/',(req,res)=>{
-    res.send('hello , I am the app! ') ;
-});
+router.get('/',mainController.showHome);
