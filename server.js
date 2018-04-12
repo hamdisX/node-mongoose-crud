@@ -12,12 +12,14 @@ port = process.env.PORT || 8888 ;
 //set the route 
 app.use(require('./app/routes'));
 
-/* app.get('/',(req,res)=>{
+ app.get('/',(req,res)=>{
     res.send('hello , I am the app! ') ;
-}) ;  */
+}) ;  
+
+
 
 
 //start our server
-app.listen(port, () =>{
+ app.listen(port, () =>{
     console.log(`App listening on http://localhost:${port}`);
-}) ;
+}) ; 
