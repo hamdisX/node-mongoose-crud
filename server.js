@@ -10,10 +10,11 @@ port = process.env.PORT || 8888 ;
 
 
 //set the route 
-app.get('/',(req,res)=>{
+app.use(require('./app/routes'));
 
+/* app.get('/',(req,res)=>{
     res.send('hello , I am the app! ') ;
-}) ;
+}) ;  */
 
 
 //start our server
