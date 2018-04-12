@@ -3,7 +3,7 @@
 
     //show the home page 
     showHome : (req,res)=> {
-        res.send('hello I am the app !!') ;
+        res.render('pages/home') ;
     }
 } ;  
 
