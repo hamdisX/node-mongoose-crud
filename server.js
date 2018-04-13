@@ -3,13 +3,14 @@
 
 const express = require('express')
 app = express(); //new instance of express
+mongoose = require('mongoose')
 expressLayouts = require('express-ejs-layouts')
 port = process.env.PORT || 8888 ;
 
 
 /* on appel methode app.use() to use middlware*/
 
-//configure our application 
+//configure our application ==========================================
 //tel express where to look for static assets
 app.use(express.static(__dirname + '/public')) ;
 
@@ -17,9 +18,10 @@ app.use(express.static(__dirname + '/public')) ;
 app.set('view engine','ejs') ;
 app.use(expressLayouts);
 
+//connect to our database 
+mongoose.connect('mongodb://root:root@ds133856.mlab.com:33856/olympic-event')
 
-
-//set the route 
+//set the route =======================================================
 app.use(require('./app/routes'));
 /* 
  app.get('/',(req,res)=>{
@@ -29,7 +31,7 @@ app.use(require('./app/routes'));
 
 
 
-//start our server
+//start our server ======================================================
  app.listen(port, () =>{
     console.log(`App listening on http://localhost:${port}`);
 }) ; 
