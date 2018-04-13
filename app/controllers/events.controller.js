@@ -1,3 +1,5 @@
+const Event = require('../models/event');
+
 
 module.exports = {
 
@@ -27,7 +29,7 @@ module.exports = {
     // ***************crud mongoo*************************//
 
     //seed our database
-    sedEvents:(req,res)=>{
+    seedEvents:(req,res)=>{
         //create some events
         const events = [
             { name: 'Basketball', description: 'Throwing into a basket.' },

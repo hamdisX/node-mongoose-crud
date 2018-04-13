@@ -17,10 +17,11 @@ router.get('/',mainController.showHome);
 router.get('/events',eventsController.showEvents) ;
 
 //seed events
-router.get('/events/seed', eventsController.sedEvents)
+router.get('/events/seed', eventsController.seedEvents)
 
 // create events
 // edit events
 // delete events
 
 //show a single event
+router.get('/events/:slug', eventsController.showSingle);
