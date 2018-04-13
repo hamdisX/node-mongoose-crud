@@ -15,8 +15,12 @@ module.exports = router ;
 router.get('/',mainController.showHome);
 //events route
 router.get('/events',eventsController.showEvents) ;
-router.get('/events/:slug', eventsController.showSingle);
+
+//seed events
+router.get('/events/seed', eventsController.sedEvents)
 
 // create events
 // edit events
 // delete events
+
+//show a single event
