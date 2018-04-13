@@ -1,11 +1,14 @@
 
+//load environment variables 
+require ('dotenv').config();
+
 //grab our dependencies 
 
 const express = require('express')
-app = express(); //new instance of express
-mongoose = require('mongoose')
-expressLayouts = require('express-ejs-layouts')
-port = process.env.PORT || 8888 ;
+      app = express(); //new instance of express
+      mongoose = require('mongoose')
+      expressLayouts = require('express-ejs-layouts')
+      port = process.env.PORT || 8888 ;
 
 
 /* on appel methode app.use() to use middlware*/
@@ -19,7 +22,7 @@ app.set('view engine','ejs') ;
 app.use(expressLayouts);
 
 //connect to our database 
-mongoose.connect('mongodb://root:root@ds133856.mlab.com:33856/olympic-event')
+mongoose.connect(process.env.DB_URI);
 
 //set the route =======================================================
 app.use(require('./app/routes'));
