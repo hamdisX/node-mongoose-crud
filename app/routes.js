@@ -15,3 +15,8 @@ module.exports = router ;
 router.get('/',mainController.showHome);
 //events route
 router.get('/events',eventsController.showEvents) ;
+router.get('/events/:slug', eventsController.showSingle);
+
+// create events
+// edit events
+// delete events
