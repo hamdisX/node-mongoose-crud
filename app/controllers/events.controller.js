@@ -34,12 +34,16 @@ module.exports = {
         const events = [
             { name: 'Basketball', description: 'Throwing into a basket.' },
             { name: 'Swimming', description: 'Michael Phelps is the fast fish.' },
-            { name: 'Weightlifting', description: 'Lifting heavy things up' }
+            { name: 'Weightlifting', description: 'Lifting heavy things up' },
+            { name: 'Cycling', description: 'James is the best' }
+
       ];
       //use the event model to insert/save
       for (event of events){
           var newEvent = new Event(event);
           newEvent.save();
+
+          //Event.remove({}) : remove all event {}
       }
 
       //seeded
