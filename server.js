@@ -8,7 +8,8 @@ const express = require('express')
       app = express(); //new instance of express
       mongoose = require('mongoose')
       expressLayouts = require('express-ejs-layouts')
-      port = process.env.PORT || 8888 ;
+      port = process.env.PORT || 8888 
+      bodyParser = require('body-parser');
 
 
 /* on appel methode app.use() to use middlware*/
@@ -23,6 +24,9 @@ app.use(expressLayouts);
 
 //connect to our database 
 mongoose.connect(process.env.DB_URI);
+
+// use body parser to grab info from a form
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //set the route =======================================================
 app.use(require('./app/routes'));
