@@ -50,6 +50,7 @@ module.exports = {
     processCreate : processCreate,
     showEdit : showEdit,
     processEdit : processEdit,
+    deleteEvent : deleteEvent
 }
 
 /**
@@ -184,5 +185,15 @@ function showEdit(req, res) {
       });
       // redirect to the newly created event
       res.redirect(`/events/${event.slug}`);
+    });
+  }
+
+  /**
+ * Delete an event
+ */
+function deleteEvent(req, res) {
+    Event.remove({ slug: req.params.slug }, (err) => {
+      // redirect back to the events page
+      res.redirect('/events');
     });
   }
