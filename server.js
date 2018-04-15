@@ -1,25 +1,30 @@
 
 //load environment variables 
-require ('dotenv').config();
+require('dotenv').config();
 
 //grab our dependencies 
 
 const express = require('express')
-      app = express(); //new instance of express
-      mongoose = require('mongoose')
-      expressLayouts = require('express-ejs-layouts')
-      port = process.env.PORT || 8888 
-      bodyParser = require('body-parser');
+app = express(); //new instance of express
+mongoose = require('mongoose')
+expressLayouts = require('express-ejs-layouts')
+port = process.env.PORT || 8888
+bodyParser = require('body-parser')
+
 
 
 /* on appel methode app.use() to use middlware*/
 
 //configure our application ==========================================
+
+
+
+
 //tel express where to look for static assets
-app.use(express.static(__dirname + '/public')) ;
+app.use(express.static(__dirname + '/public'));
 
 //set ejs as our templating engine 
-app.set('view engine','ejs') ;
+app.set('view engine', 'ejs');
 app.use(expressLayouts);
 
 //connect to our database 
@@ -39,6 +44,6 @@ app.use(require('./app/routes'));
 
 
 //start our server ======================================================
- app.listen(port, () =>{
+app.listen(port, () => {
     console.log(`App listening on http://localhost:${port}`);
-}) ; 
+}); 

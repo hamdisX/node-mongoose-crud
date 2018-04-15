@@ -24,10 +24,13 @@
   "homepage": "https://github.com/hamdimiled/node-mongose-crud#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
     "dotenv": "^5.0.1",
     "ejs": "^2.5.8",
     "express": "^4.16.3",
     "express-ejs-layouts": "^2.4.0",
+    "express-session": "^1.15.6",
     "mongoose": "^5.0.14"
   }
 }
