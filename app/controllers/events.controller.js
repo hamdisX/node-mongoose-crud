@@ -47,7 +47,9 @@ module.exports = {
     showSingle: showSingle,
     seedEvents: seedEvents,
     showCreate : showCreate,
-    processCreate : processCreate
+    processCreate : processCreate,
+    showEdit : showEdit,
+    processEdit : processEdit,
 }
 
 /**
@@ -151,6 +153,35 @@ function showCreate(req, res) {
       if (err)
         throw err;
   
+      // redirect to the newly created event
+      res.redirect(`/events/${event.slug}`);
+    });
+  }
+
+  /**
+ * Show the edit form
+ */
+function showEdit(req, res) {
+    Event.findOne({ slug: req.params.slug }, (err, event) => {
+      res.render('pages/edit', {
+        event: event
+      });
+    });
+  }
+
+  function processEdit(req, res) {
+    
+  
+    // finding a current event
+    Event.findOne({ slug: req.params.slug }, (err, event) => {
+      // updating that event
+      event.name        = req.body.name;
+      event.description = req.body.description;
+  
+      event.save((err) => {
+        if (err)
+          throw err;
+      });
       // redirect to the newly created event
       res.redirect(`/events/${event.slug}`);
     });
